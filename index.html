@@ -109,7 +109,7 @@
 const userAgent = window.navigator.userAgent;
 if (userAgent && (userAgent.includes('MicroMessenger') || userAgent.includes('PA'))) {
     // 在微信或者应用程序内部打开，提示使用浏览器打开
-    const imageUrl = 'https://www.lcsdy.xyz/cshb.jpg';
+    const imageUrl = '/cshb.jpg';
     const message = `<img src="${imageUrl}" alt="点击图片提示" style="max-width: 100%; height: auto;">`;
     document.body.innerHTML = message;
 }

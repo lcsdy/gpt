@@ -62,14 +62,18 @@
             margin: 15px 20px;
             opacity: 0.6;
         }
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
+        @media screen and (max-width: 650px) {
+            .text-button {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                text-align: center;
+                width: 100%;
+                z-index: 9999;
+                transform: none;
+            }
+        }
 
         @media screen and (max-width: 600px) {
             .button-container {

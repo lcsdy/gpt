@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="renderer" content="webkit"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #video-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #bg-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -3;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backdrop-filter: blur(10px);
+            z-index: -1;
+            border-radius: 10px;
+        }
+
+        .button-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .button {
+            display: inline-block;
+            background: linear-gradient(to right, #ff1493, #ffa500, #ffff00);
+            color: #8B0000;
+            font-size: 24px;
+            padding: 15px 30px;
+            text-decoration: none;
+            border: none;
+            border-radius: 10px;
+            margin: 15px 20px;
+            opacity: 0.6;
+        }
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+        @media screen and (max-width: 600px) {
+            .button-container {
+                top: 70%;
+                transform: translate(-50%, -70%);
+            }
+
+            .button {
+                font-size: 24px;
+                padding: 15px 30px;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+<video id="bg-video" loop muted autoplay playsinline>
+    <source src="bg.mp4" type="video/mp4">
+</video>
+
+
+
+    <div class="overlay"></div>
+    <div class="button-container">
+        <a href="https://www.lcsdy.xyz" class="button">点击进入主页</a>
+<h1 style="color: linear-gradient(to right, #ff1493, #ffa500, #ffff00);">
+  <img src="logo.jpg" alt="Logo" style="vertical-align: middle; height: 60px; animation-name: rotate; animation-duration: 4s; animation-timing-function: linear; animation-iteration-count: infinite;">
+</h1>
+<button id="volumeButton">打开声音</button>
+        <div>
+            <a href="https://lcsdy.xyz/index.php/label/app.html" class="button">点击安装软件</a>
+            <button id="copyButton" class="button">复制海报链接</button>
+        </div>
+    </div>
+
+    <script>
+        const copyButton = document.getElementById("copyButton");
+        copyButton.addEventListener("click", function () {
+            const link = document.createElement("textarea");
+            link.value = "https://www.lcsdy.xyz/hb.png";
+            document.body.appendChild(link);
+            link.select();
+            document.execCommand("copy");
+            document.body.removeChild(link);
+            alert("链接已复制到剪贴板，现在去发抖音或者微信朋友圈推广海报并好评，10分钟后截图到官网领取月卡！");
+        });
+
+const video = document.getElementById("bg-video");
+const volumeButton = document.getElementById("volumeButton");
+
+volumeButton.addEventListener("click", function () {
+    if (video.muted) {
+        video.muted = false;
+        volumeButton.textContent = "关闭声音";
+    } else {
+        video.muted = true;
+        volumeButton.textContent = "打开声音";
+    }
+});
+    </script>
+</body>
+</html>

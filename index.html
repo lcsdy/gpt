@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap" rel="stylesheet">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="renderer" content="webkit"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
     <style>
         body, html {
             margin: 0;
@@ -42,34 +46,25 @@
             border-radius: 10px;
         }
 
-        .button-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
+               .container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
         }
 
         .button {
-            display: inline-block;
-            background: linear-gradient(to right, #ff1493, #ffa500, #ffff00);
-            color: #8B0000;
-            font-size: 18px;
-            padding: 12px 20px;
-            text-decoration: none;
-            border: none;
-            border-radius: 10px;
-            margin: 12px 20px;
-            opacity: 0.6;
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 100%;
+            max-height: 100%;
+            animation: rotateIn 1s forwards;
         }
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
 
         .text-button {
             display: flex;
@@ -104,6 +99,14 @@
                 transform: none;
             }
         }
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
     </style>
 </head>
 <body>

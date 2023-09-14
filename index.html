@@ -106,10 +106,12 @@
     </div>
 
     <script>
+    const userAgent = window.navigator.userAgent;
+    if (userAgent && (userAgent.includes('MicroMessenger') || userAgent.includes('PA'))) {
         // 在微信或者应用程序内部打开，提示使用浏览器打开
-        if (/MicroMessenger|QQ|Yixin|Weibo/.test(navigator.userAgent)) {
-            alert("请使用浏览器打开！");
-        }
+        const message = '<img src="cshb.jpg" alt="点击图片提示">';
+        document.body.innerHTML = message;
+    }
         
         const copyButton = document.getElementById("copyButton");
         copyButton.addEventListener("click", function () {

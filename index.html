@@ -75,16 +75,37 @@
             }
         }
 
-        @media screen and (max-width: 600px) {
-            .button-container {
-                top: 70%;
-                transform: translate(-50%, -70%);
-            }
+        .text-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            text-align: center;
+            border-radius: 5px;
+            background-color: #000;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            position: absolute;
+            top: calc(65% + 50px);
+            left: 50%;
+            transform: translateX(-50%);
+        }
 
-            .button {
-                font-size: 24px;
-                padding: 15px 30px;
-                margin: 10px 0;
+        .text-button:hover {
+            background-color: rgba(255, 255, 0, 1);
+        }
+
+        @media screen and (max-width: 650px) {
+            .text-button {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                text-align: center;
+                width: 100%;
+                z-index: 9999;
+                transform: none;
             }
         }
     </style>
